@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ionic-esri-js-ds2020</string>
+    <string name="title_activity_main">ionic-esri-js-ds2020</string>
+    <string name="package_name">com.ionicesrijsds2020.app</string>
+    <string name="custom_url_scheme">com.ionicesrijsds2020.app</string>
+</resources>
