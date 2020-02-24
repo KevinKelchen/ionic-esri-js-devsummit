@@ -1,0 +1,7 @@
+{
+  "name": "ionic-esri-js-ds2020",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
