@@ -1,0 +1,26 @@
+app-esri-map {
+  display: block;
+  height: 100%;
+  background-color: #E5E3DF; // Background color that appears when a tile hasn't yet loaded.
+
+  .esri-view {
+    height: 100%;
+
+    .esri-attribution {
+      // Move attribution to the top of the map instead of the bottom since on mobile we
+      // may overlay the bottom of the map with other components that could obscure it.
+      top: 5px;
+      bottom: auto;
+
+      .esri-attribution__sources {
+        font-size: 10px; // Make the font size a tad smaller.
+      }
+    }
+
+    // Disable the blue focus rectangle:
+    // https://community.esri.com/thread/236690-arcgis-js-api-4-remove-blue-frameoutline-around-mapview
+    .esri-view-surface--inset-outline:focus::after {
+      outline: none !important;
+    }
+  }
+}
