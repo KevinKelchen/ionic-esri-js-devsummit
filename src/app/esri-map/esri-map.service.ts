@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { EsriLoaderService } from './esri-loader.service';
 import { EsriMapViewService } from './esri-map-view.service';
 
@@ -15,7 +15,6 @@ export class EsriMapService {
   constructor(
     private esriLoaderService: EsriLoaderService,
     private esriMapViewService: EsriMapViewService,
-    private ngZone: NgZone,
   ) { }
 
   /**
@@ -54,30 +53,27 @@ export class EsriMapService {
   async loadMap(mapViewEl: HTMLDivElement) {
     await this.loadEsri();
 
-    // await this.ngZone.runOutsideAngular(async () => {
-
     const mapView = await this.esriMapViewService.getMapView(mapViewEl, {
-        center: {
-          x: -91.5,
-          y: 42.5
-        },
-        zoom: 9
-      });
+      center: {
+        x: -91.5,
+        y: 42.5
+      },
+      zoom: 9
+    });
 
     if (!mapView.map) {
-        mapView.map = new this.EsriWebMap({
-          portalItem: {
-            // id: '55ebf90799fa4a3fa57562700a68c405' // Vector Streets.
-            id: 'd8855ee4d3d74413babfb0f41203b168' // Raster Streets.
-          },
-          layers: [
-            new this.EsriGraphicsLayer({ id: 'myLocation' }),
-          ]
-        });
-      }
+      mapView.map = new this.EsriWebMap({
+        portalItem: {
+          // id: '55ebf90799fa4a3fa57562700a68c405' // Vector Streets.
+          id: 'd8855ee4d3d74413babfb0f41203b168' // Raster Streets.
+        },
+        layers: [
+          new this.EsriGraphicsLayer({ id: 'myLocation' }),
+        ]
+      });
+    }
 
     await this.EsriWatchUtils.whenOnce(mapView, 'ready');
-    // });
 
     return mapView;
   }
