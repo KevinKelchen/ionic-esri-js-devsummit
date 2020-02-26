@@ -81,7 +81,6 @@ export class EsriMapViewService {
       };
 
       const newMapViewContainer = document.createElement('div');
-      newMapViewContainer.setAttribute('tappable', ''); // Avoid touch tap delay.
       parentElement.prepend(newMapViewContainer);
 
       mapViewData = {
