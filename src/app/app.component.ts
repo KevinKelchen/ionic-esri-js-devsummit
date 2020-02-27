@@ -3,6 +3,8 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Platform } from '@ionic/angular';
 
+import { RoutingService } from './services/routing.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -12,6 +14,7 @@ import { Platform } from '@ionic/angular';
 export class AppComponent {
   constructor(
     private platform: Platform,
+    private routingService: RoutingService,
   ) {
     this.initializeApp();
   }
@@ -20,6 +23,8 @@ export class AppComponent {
     this.platform.ready().then(() => {
       // this.statusBar.styleDefault();
       // this.splashScreen.hide();
+
+      this.routingService.configureHardwareBackButton();
     });
   }
 }

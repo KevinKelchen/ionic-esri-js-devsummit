@@ -1,12 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Home
-    </ion-title>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+    <ion-title>Detail Screen</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="routeToDetailScreen()">
-        Detail
-      </ion-button>
       <ion-button (click)="openModal()">
         Modal
       </ion-button>

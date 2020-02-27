@@ -1,0 +1,49 @@
+:host {
+  --back-button-top-margin: 1px;
+  --color: var(--gray-600);
+
+  ion-button {
+    --color-activated: var(--color);
+    --color-focused: var(--color);
+    --background: transparent;
+  }
+
+  ion-icon {
+    color: var(--color);
+
+    + span {
+      color: var(--content-color);
+    }
+  }
+
+  ion-button {
+    margin-left: 0;
+
+    &.ios {
+      --padding-start: 0;
+
+      ion-icon {
+        margin-left: -4px;
+        margin-right: -5px;
+        font-size: 1.85em;
+      }
+    }
+
+    &.md {
+      margin-top: var(--back-button-top-margin);
+      margin-right: 6px;
+      --padding-start: 5px;
+      --padding-end: 5px;
+
+      ion-icon {
+        margin-left: 6px;
+        margin-right: 6px;
+        font-size: 24px;
+      }
+
+      span {
+        display: none;
+      }
+    }
+  }
+}

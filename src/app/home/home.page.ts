@@ -1,4 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+
+import { RoutingService } from '../services/routing.service';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +11,16 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(
+    private routingService: RoutingService,
+    private modalController: ModalController,
+  ) { }
 
+  routeToDetailScreen() {
+    this.routingService.navigate({ commands: ['/detail'] });
+  }
+
+  openModal() {
+
+  }
 }

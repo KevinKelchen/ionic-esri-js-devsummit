@@ -1,0 +1,6 @@
+<div (click)="onClick()">
+  <ion-button>
+    <ion-icon [attr.name]="(mode$ | async) === 'ios' ? 'chevron-back' : 'arrow-back-sharp'" slot="icon-only"></ion-icon>
+    <span slot="start">Back</span>
+  </ion-button>
+</div>
