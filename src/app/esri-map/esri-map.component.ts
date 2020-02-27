@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy, ElementRef, NgModule, ViewEncapsulation, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, NgModule, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+
 import { EsriMapService } from './esri-map.service';
 
 @Component({

@@ -55,7 +55,15 @@
       "as-needed"
     ],
     "object-literal-sort-keys": false,
-    "ordered-imports": false,
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "case-insensitive",
+        "named-imports-order": "case-insensitive",
+        "module-source-path": "basename",
+        "grouped-imports": true
+      }
+    ],
     "quotemark": [
       true,
       "single"

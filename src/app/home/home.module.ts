@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
+
+import { EsriMapComponentModule } from '../esri-map/esri-map.component';
 
 import { HomePage } from './home.page';
-import { EsriMapComponentModule } from '../esri-map/esri-map.component';
 
 @NgModule({
   imports: [
