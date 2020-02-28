@@ -8,7 +8,7 @@ import { EsriMapViewService } from './esri-map-view.service';
 })
 export class EsriMapService {
   private esriLoaded: Promise<any>;
-  private EsriWebMap: typeof __esri.WebMap;
+  private EsriMap: typeof __esri.Map;
   private EsriGraphicsLayer: typeof __esri.GraphicsLayer;
   private EsriGraphic: typeof __esri.Graphic;
   private EsriWatchUtils: typeof __esri.watchUtils;
@@ -30,19 +30,19 @@ export class EsriMapService {
     }
 
     const loadModulesPromise = this.esriLoaderService.loadModules<[
-      typeof __esri.WebMap,
+      typeof __esri.Map,
       typeof __esri.GraphicsLayer,
       typeof __esri.Graphic,
       typeof __esri.watchUtils,
     ]>([
-      'esri/WebMap',
+      'esri/Map',
       'esri/layers/GraphicsLayer',
       'esri/Graphic',
       'esri/core/watchUtils',
     ]);
 
     [
-      this.EsriWebMap,
+      this.EsriMap,
       this.EsriGraphicsLayer,
       this.EsriGraphic,
       this.EsriWatchUtils,
@@ -63,11 +63,8 @@ export class EsriMapService {
     });
 
     if (!mapView.map) {
-      mapView.map = new this.EsriWebMap({
-        portalItem: {
-          // id: '55ebf90799fa4a3fa57562700a68c405' // Vector Streets.
-          id: 'd8855ee4d3d74413babfb0f41203b168' // Raster Streets.
-        },
+      mapView.map = new this.EsriMap({
+        basemap: 'streets', // 'streets-vector'
         layers: [
           new this.EsriGraphicsLayer({ id: 'myLocation' }),
         ]
