@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
+import { CanDeactivateGuard } from '../routing/can-deactivate.guard';
 import { EsriMapComponentModule } from '../esri-map/esri-map.component';
 
 import { HomePage } from './home.page';
@@ -13,7 +14,8 @@ import { HomePage } from './home.page';
     RouterModule.forChild([
       {
         path: '',
-        component: HomePage
+        component: HomePage,
+        canDeactivate: [CanDeactivateGuard]
       }
     ])
   ],

@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
-import { RoutingService } from '../services/routing.service';
+import { ModalMapComponent } from '../modal-map/modal-map.component';
+import { RoutingService } from '../routing/routing.service';
 
 @Component({
   selector: 'app-home',
@@ -16,11 +17,15 @@ export class HomePage {
     private modalController: ModalController,
   ) { }
 
-  routeToDetailScreen() {
-    this.routingService.navigate({ commands: ['/detail'] });
+  async routeToDetailScreen() {
+    await this.routingService.navigate({ commands: ['/detail'] });
   }
 
-  openModal() {
+  async openModal() {
+    const modal = await this.modalController.create({
+      component: ModalMapComponent,
+    });
 
+    await modal.present();
   }
 }

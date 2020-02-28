@@ -1,4 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+
+import { ModalMapComponent } from '../modal-map/modal-map.component';
 
 @Component({
   selector: 'app-detail',
@@ -8,9 +11,15 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 })
 export class DetailPage {
 
-  constructor() { }
+  constructor(
+    private modalController: ModalController,
+  ) { }
 
-  openModal() {
+  async openModal() {
+    const modal = await this.modalController.create({
+      component: ModalMapComponent,
+    });
 
+    await modal.present();
   }
 }

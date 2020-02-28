@@ -26,12 +26,12 @@ export class EsriMapComponent implements OnDestroy, OnInit {
     this.mapView = await this.esriMapService.loadMap(this.elementRef.nativeElement);
   }
 
-  ngOnDestroy() {
+  async ngOnDestroy() {
     for (const mapEventHandle of this.mapEventHandles) {
       mapEventHandle.remove();
     }
 
-    this.esriMapService.teardown(this.mapView);
+    await this.esriMapService.teardown(this.mapView);
   }
 }
 

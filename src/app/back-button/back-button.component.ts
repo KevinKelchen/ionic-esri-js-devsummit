@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, NgModule, OnInit } from '@angular/c
 import { IonicModule, Platform } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 
-import { RoutingService } from '../services/routing.service';
+import { RoutingService } from '../routing/routing.service';
 
 type BackCloseButtonMode = 'md' | 'ios';
 
