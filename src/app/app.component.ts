@@ -1,6 +1,4 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Platform } from '@ionic/angular';
 
 import { RoutingService } from './routing/routing.service';
@@ -19,12 +17,9 @@ export class AppComponent {
     this.initializeApp();
   }
 
-  initializeApp() {
-    this.platform.ready().then(() => {
-      // this.statusBar.styleDefault();
-      // this.splashScreen.hide();
+  async initializeApp() {
+    await this.platform.ready();
 
-      this.routingService.configureHardwareBackButton();
-    });
+    this.routingService.configureHardwareBackButton();
   }
 }
