@@ -1,4 +1,4 @@
-package com.ionicesrijsds2020.app;
+package com.ionicesrijsdevsummit.app;
 
 import android.os.Bundle;
 

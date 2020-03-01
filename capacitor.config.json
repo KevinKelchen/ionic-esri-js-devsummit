@@ -1,6 +1,6 @@
 {
-  "appId": "com.ionicesrijsds2020.app",
-  "appName": "ionic-esri-js-ds2020",
+  "appId": "com.ionicesrijsdevsummit.app",
+  "appName": "ionic-esri-js-devsummit",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
