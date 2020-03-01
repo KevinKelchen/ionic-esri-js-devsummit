@@ -7,6 +7,9 @@ import { RoutingService } from './routing.service';
 /**
  * An Angular CanDeactivate route guard that intervenes in a routing navigation attempt
  * in order to do things like check and prompt for unsaved changes.
+ * It will also attempt close an open modal and prevent the navigation from proceeding.
+ * This prevents navigation in the background while a modal remains open; it makes
+ * back navigation address any open modals before trying to navigate.
  */
 @Injectable({
   providedIn: 'root'
