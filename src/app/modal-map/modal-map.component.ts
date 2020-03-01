@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
 import { IonicModule, ModalController } from '@ionic/angular';
 
 import { EsriMapComponentModule } from '../esri-map/esri-map.component';
@@ -8,6 +8,7 @@ import { MapOptions } from '../esri-map/esri-map.service';
   selector: 'app-modal-map',
   templateUrl: './modal-map.component.html',
   styleUrls: ['./modal-map.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ModalMapComponent {
 
