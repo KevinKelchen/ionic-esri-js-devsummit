@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, ElementRef, NgModule, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, Input, NgModule, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 
-import { EsriMapService } from './esri-map.service';
+import { EsriMapService, MapOptions } from './esri-map.service';
 
 @Component({
   selector: 'app-esri-map',
@@ -14,6 +14,8 @@ import { EsriMapService } from './esri-map.service';
 })
 export class EsriMapComponent implements OnDestroy, OnInit {
 
+  @Input() mapOptions: MapOptions;
+
   private mapEventHandles: IHandle[] = [];
   private mapView: __esri.MapView;
 
@@ -23,10 +25,16 @@ export class EsriMapComponent implements OnDestroy, OnInit {
   ) { }
 
   async ngOnInit() {
-    this.mapView = await this.esriMapService.loadMap(this.elementRef.nativeElement);
+    this.mapView = await this.esriMapService.createMap(
+      {
+        mapViewEl: this.elementRef.nativeElement,
+        mapOptions: this.mapOptions,
+      }
+    );
   }
 
   async ngOnDestroy() {
+    // Unbind any events that are wired-up in the component.
     for (const mapEventHandle of this.mapEventHandles) {
       mapEventHandle.remove();
     }
