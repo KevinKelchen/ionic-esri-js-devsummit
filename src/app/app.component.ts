@@ -1,7 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Plugins } from '@capacitor/core';
 import { Platform } from '@ionic/angular';
 
 import { RoutingService } from './routing/routing.service';
+
+const { SplashScreen } = Plugins;
 
 @Component({
   selector: 'app-root',
@@ -18,7 +21,12 @@ export class AppComponent {
   }
 
   async initializeApp() {
-    await this.platform.ready();
+    // Capacitor plugins do not require waiting for the device ready event.
+    // Use of Cordova plugins may require waiting for platform ready even
+    // when using Cordova plugins within Capacitor.
+    // await this.platform.ready();
+
+    await SplashScreen.hide();
 
     this.routingService.configureHardwareBackButton();
   }
