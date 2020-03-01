@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { IonRouterOutlet, ModalController } from '@ionic/angular';
 
 import { MapOptions } from '../esri-map/esri-map.service';
 import { ModalMapComponent } from '../modal-map/modal-map.component';
@@ -25,6 +25,7 @@ export class HomePage {
   constructor(
     private routingService: RoutingService,
     private modalController: ModalController,
+    private routerOutlet: IonRouterOutlet,
   ) { }
 
   async routeToDetailScreen() {
@@ -44,6 +45,8 @@ export class HomePage {
           zoom: 9,
         }
       },
+      swipeToClose: true,
+      presentingElement: this.routerOutlet.nativeEl,
     });
 
     await modal.present();
