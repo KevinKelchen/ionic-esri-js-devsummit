@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { NavController, Platform } from '@ionic/angular';
+import { ModalController, NavController, Platform } from '@ionic/angular';
 
 /**
  * This service is used for application routing. It pulls routing collaborators into one location to simplify,
@@ -17,13 +17,22 @@ export class RoutingService {
     private router: Router,
     private location: Location,
     private navController: NavController,
+    private modalController: ModalController,
     private platform: Platform,
   ) { }
 
   /**
    * Navigate back.
    */
-  back() {
+  async back() {
+    const modal = await this.modalController.getTop();
+
+    if (modal) {
+      // If a modal was open, close the modal and do not proceed with the navigation.
+      await modal.dismiss();
+      return;
+    }
+
     // Provide the back animation.
     this.navController.setDirection('back', true, 'back');
     this.location.back();
