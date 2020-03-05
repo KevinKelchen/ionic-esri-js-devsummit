@@ -39,7 +39,8 @@ export class RoutingService {
   }
 
   /**
-   * Configure what happens when pressing the hardware back button. Do this one time in the app.
+   * Configure what happens when pressing the hardware back button.
+   * Do this one time in the app.
    */
   configureHardwareBackButton() {
     this.platform.backButton.subscribeWithPriority(9999, () => {
@@ -51,11 +52,10 @@ export class RoutingService {
    * Navigate forward.
    */
   async navigate(params: NavigateParams): Promise<boolean> {
-    // Remove all existing Pages in the Ionic stack.
-    // The Page being navigated to will become the only Page in the Ionic stack.
-    // This does not affect browser history.
-    // The 1st parameter with a value of "root" makes this happen.
+    // By navigating in the "root" direction the Page being
+    // navigated to will become the only Page in the Ionic stack.
     this.navController.setDirection('root', true, 'forward');
+
     return await this.router.navigate(params.commands, params.extras);
   }
 
