@@ -25,18 +25,10 @@ export class RoutingService {
    * Navigate back.
    */
   async back() {
-    const modal = await this.modalController.getTop();
-
-    if (modal) {
-      // If a modal was open, close the modal and do not proceed with the navigation.
-      await modal.dismiss();
-      return;
-    }
-
     // Provide the back animation.
     this.navController.setDirection('back', true, 'back');
 
-    this.location.back();
+    this.location.back(); // Equivalent to window.history.back()
   }
 
   /**
