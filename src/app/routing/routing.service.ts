@@ -35,6 +35,7 @@ export class RoutingService {
 
     // Provide the back animation.
     this.navController.setDirection('back', true, 'back');
+
     this.location.back();
   }
 
